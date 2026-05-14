@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Merci - Lexi VFR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .merci-container {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            background: #fff;
+            padding: 50px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #f1c40f;
+        }
+        .icon-check { font-size: 4rem; color: #28a745; margin-bottom: 20px; }
+        .btn-home {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+        .btn-home:hover { background-color: #f1c40f; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <header><img src="Image2.jpg" alt="Lexi VFR" class="banner"></header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="avis.html">Avis</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="mentions-legales.html">Mentions</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="merci-container">
+            <i class="fas fa-check-circle icon-check"></i>
+            <h1 style="color: #2c3e50;">Demande envoyée !</h1>
+            <p style="font-size: 1.2rem; margin: 20px 0;">Merci de votre confiance.</p>
+            <p>Votre message a bien été transmis à Alexia. Je reviendrai vers vous rapidement pour votre devis personnalisé à Fismes.</p>
+            
+            <!-- Bouton pour retourner sur la page d'accueil -->
+            <a href="index.html" class="btn-home">Retour à l'accueil</a>
+        </div>
+    </section>
+
+    <footer style="margin-top: 40px; text-align: center; padding: 20px; border-top: 1px solid #eee;">
+        <p><strong>Lexi VFR</strong> — Service de proximité</p>
+        <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
+    </footer>
+</body>
+</html>
