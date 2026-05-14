@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact & Devis - Lexi VFR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header><img src="Image2.jpg" alt="Lexi VFR" class="banner"></header>
+    <nav><ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="planning.html">Planning</a></li><li><a href="avis.html">Avis</a></li><li><a href="contact.html" class="active">Contact</a></li><li><a href="mentions-legales.html">Mentions</a></li></ul></nav>
+    <section>
+        <h2>Demander un Devis Gratuit</h2>
+        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+            <form action="mailto:alexia.lefevre421@gmail.com" method="post" enctype="text/plain" style="flex: 2; min-width: 300px;">
+                <input type="text" name="Nom" placeholder="Nom Complet" required style="width:100%; padding:12px; margin-bottom:10px;">
+                <input type="text" name="Ville" placeholder="Votre Ville (Rayon 25km Fismes)" required style="width:100%; padding:12px; margin-bottom:10px;">
+                <textarea name="Besoin" placeholder="Détaillez votre besoin (Logement, fréquence...)" style="width:100%; padding:12px; height:120px; margin-bottom:10px;"></textarea>
+                <button type="submit" class="btn-gold" style="width:100%; border:none;">Envoyer ma demande</button>
+            </form>
+            <div class="card" style="flex: 1; min-width: 250px; background: var(--green); color: white;">
+                <h3>Contact Direct</h3>
+                <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
+                <p><i class="fas fa-envelope"></i> alexia.lefevre421@gmail.com</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

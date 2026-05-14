@@ -1,0 +1,31 @@
+:root {
+    --green: #062b1d;
+    --gold: #b5934a;
+    --white: #ffffff;
+    --light-grey: #f8f9fa;
+}
+
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; background: var(--light-grey); line-height: 1.6; }
+
+/* Bannière et Navigation */
+header { background: white; text-align: center; border-bottom: 2px solid var(--gold); }
+.banner { width: 100%; max-height: 400px; object-fit: contain; }
+
+nav { background: var(--green); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+nav ul li a { color: white; text-decoration: none; padding: 18px 20px; display: block; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: var(--gold); background: rgba(255,255,255,0.05); }
+
+/* Mise en page */
+section { padding: 60px 10%; max-width: 1100px; margin: auto; background: white; }
+h1, h2 { color: var(--green); border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 8px; margin-bottom: 30px; }
+
+/* Composants Professionnels */
+.btn-gold { background: var(--gold); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
+.btn-gold:hover { background: var(--green); transform: translateY(-2px); }
+
+.card { border: 1px solid #eee; border-radius: 12px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-top: 20px; }
+
+/* Footer */
+footer { background: var(--green); color: white; text-align: center; padding: 40px 10%; margin-top: 50px; }
+footer a { color: var(--gold); text-decoration: none; font-size: 0.9rem; }
