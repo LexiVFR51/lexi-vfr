@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Demande de Devis - Lexi VFR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: #2c3e50; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+        .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .form-row > div { flex: 1; min-width: 250px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
+        .checkbox-item { display: flex; align-items: center; gap: 8px; background: #f8f9fa; padding: 10px; border-radius: 6px; cursor: pointer; }
+        .btn-submit { background-color: #2c3e50; color: white; padding: 15px 40px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; transition: 0.3s; margin-top: 20px; }
+        .btn-submit:hover { background-color: #f1c40f; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <header><img src="Image2.jpg" alt="Lexi VFR" class="banner"></header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="avis.html">Avis</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="mentions-legales.html">Mentions</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="contact-container">
+            <h2 style="text-align: center;">Demander un devis gratuit</h2>
+            <p style="text-align: center; color: #666;">Réponse sous 24h pour vos besoins à Fismes et ses environs.</p>
+
+            <form action="https://formspree.io/f/xbdwebao" method="POST">
+                
+                <!-- Redirection automatique vers merci.html après l'envoi -->
+                <input type="hidden" name="_next" value="https://lexivfr51.github.io/lexi-vfr/merci.html">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom & Prénom</label>
+                        <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Téléphone</label>
+                        <input type="tel" name="telephone" id="tel" class="form-control" placeholder="06 00 00 00 00" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="_replyto" id="email" class="form-control" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adresse">Adresse de l'intervention (Fismes et alentours)</label>
+                    <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Rue, Code Postal, Ville" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="surface">Surface environ (m²)</label>
+                        <input type="number" name="surface" id="surface" class="form-control" placeholder="Ex: 80">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequence">Fréquence souhaitée</label>
+                        <select name="frequence" id="frequence" class="form-control">
+                            <option value="ponctuel">Ponctuel (Grand nettoyage)</option>
+                            <option value="hebdomadaire">Hebdomadaire</option>
+                            <option value="bi-mensuel">Bi-mensuel</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Services souhaités :</label>
+                    <div class="services-grid">
+                        <label class="checkbox-item"><input type="checkbox" name="service" value="menage"> Ménage</label>
+                        <label class="checkbox-item"><input type="checkbox" name="service" value="repassage"> Repassage</label>
+                        <label class="checkbox-item"><input type="checkbox" name="service" value="vitres"> Vitres</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Précisions (Animaux, accès...)</label>
+                    <textarea name="message" id="message" class="form-control" style="height: 100px;"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Envoyer ma demande</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 20px; color: #666; font-size: 0.9em;">
+        <p>Lexi VFR — Fismes et 25km aux alentours</p>
+        <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
+    </footer>
+</body>
+</html>
