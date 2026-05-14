@@ -37,11 +37,9 @@
             <h2 style="text-align: center;">Demander un devis gratuit</h2>
             <p style="text-align: center; color: #666;">Réponse sous 24h pour vos besoins à Fismes et ses environs.</p>
 
-            <form action="https://formspree.io/f/xbdwebao" method="POST">
+            <!-- Ajout de l'ID "my-form" pour le script de redirection -->
+            <form id="my-form" action="https://formspree.io/f/xbdwebao" method="POST">
                 
-                <!-- Redirection automatique vers merci.html après l'envoi -->
-                <input type="hidden" name="_next" value="https://lexivfr51.github.io/lexi-vfr/merci.html">
-
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nom">Nom & Prénom</label>
@@ -92,7 +90,7 @@
                     <textarea name="message" id="message" class="form-control" style="height: 100px;"></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Envoyer ma demande</button>
+                <button type="submit" class="btn-submit" id="btn-text">Envoyer ma demande</button>
             </form>
         </div>
     </section>
@@ -101,5 +99,41 @@
         <p>Lexi VFR — Fismes et 25km aux alentours</p>
         <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
     </footer>
+
+    <!-- SCRIPT DE REDIRECTION GRATUITE -->
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("btn-text");
+          var data = new FormData(event.target);
+          
+          status.innerHTML = "Envoi en cours...";
+          status.style.backgroundColor = "#ccc";
+
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              // Redirection manuelle vers votre page merci.html
+              window.location.href = "merci.html";
+            } else {
+              status.innerHTML = "Envoyer ma demande";
+              status.style.backgroundColor = "#2c3e50";
+              alert("Oups ! Il y a eu un problème lors de l'envoi.");
+            }
+          }).catch(error => {
+            status.innerHTML = "Envoyer ma demande";
+            status.style.backgroundColor = "#2c3e50";
+            alert("Erreur de connexion au serveur.");
+          });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
 </body>
 </html>
