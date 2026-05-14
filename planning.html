@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning & Disponibilités | Lexi VFR - Fismes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --dark-blue: #1a252f; --soft-white: #fcfcfc; --off-day: #f2dede; --vacation: #d9edf7; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--soft-white); color: var(--dark-blue); }
+        
+        /* Navigation */
+        nav { background: rgba(255, 255, 255, 0.98); padding: 1.2rem 0; position: fixed; top: 0; width: 100%; z-index: 2000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin: 0 25px; }
+        nav ul li a { color: var(--dark-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; }
+
+        /* Bannière PNG sans texte blanc */
+        .hero-planning { height: 45vh; background: url('bg-planning.png') center/cover no-repeat fixed; margin-top: 60px; }
+        .gold-divider { width: 100%; height: 5px; background: var(--gold); }
+
+        .container { max-width: 1100px; margin: -60px auto 80px; position: relative; z-index: 10; padding: 0 20px; }
+        
+        .planning-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; }
+        .main-card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-top: 4px solid var(--gold); }
+        
+        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 30px; text-align: center; }
+
+        /* Calendrier Interactif Grand Format */
+        .calendar-app { border: 1px solid #eee; padding: 25px; border-radius: 8px; background: #fff; }
+        .calendar-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-weight: 600; color: var(--gold); font-size: 1.2rem; }
+        .calendar-nav button { background: none; border: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; transition: 0.3s; }
+        .calendar-nav button:hover { transform: scale(1.2); }
+        
+        .grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+        .day-name { font-weight: bold; font-size: 0.9rem; color: #aaa; text-align: center; padding-bottom: 15px; }
+        .day { padding: 18px 0; font-size: 1rem; border-radius: 4px; text-align: center; border: 1px solid #f9f9f9; }
+        
+        .closed { background-color: var(--off-day); color: #a94442; font-weight: bold; border-color: #ebccd1; }
+        .vacation { background-color: var(--vacation); color: #31708f; font-weight: bold; border-color: #bce8f1; }
+
+        /* Sidebar & Status */
+        .side-info { display: flex; flex-direction: column; gap: 20px; }
+        .status-badge { padding: 15px; border-radius: 4px; text-align: center; font-weight: 600; font-size: 0.9rem; border: 1px solid; }
+        .status-on { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+        .status-off { background: #ffebee; color: #c62828; border-color: #ffcdd2; }
+
+        .hour-card { background: var(--dark-blue); color: white; padding: 30px; border-radius: 4px; }
+        .hour-card h3 { color: var(--gold); margin-top: 0; font-family: 'Playfair Display', serif; }
+        .hour-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; font-size: 0.9rem; }
+
+        .legend-box { display: flex; gap: 15px; justify-content: center; margin-top: 20px; font-size: 0.8rem; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .dot { width: 12px; height: 12px; border-radius: 2px; }
+
+        footer { text-align: center; padding: 40px; background: #fff; font-size: 0.8rem; border-top: 1px solid #eee; }
+
+        @media (max-width: 850px) { .planning-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="avis.html">Avis</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-planning"></div>
+    <div class="gold-divider"></div>
+
+    <div class="container">
+        <div class="planning-grid">
+            
+            <div class="main-card">
+                <h2>Agenda Lexi VFR 2026</h2>
+                <div class="calendar-app">
+                    <div class="calendar-nav">
+                        <button onclick="changeMonth(-1)"><i class="fas fa-arrow-left"></i></button>
+                        <span id="monthDisplay"></span>
+                        <button onclick="changeMonth(1)"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="grid-7">
+                        <div class="day-name">Lun</div><div class="day-name">Mar</div><div class="day-name">Mer</div><div class="day-name">Jeu</div><div class="day-name">Ven</div><div class="day-name">Sam</div><div class="day-name">Dim</div>
+                    </div>
+                    <div id="calendarGrid" class="grid-7"></div>
+                </div>
+                <div class="legend-box">
+                    <div class="legend-item"><div class="dot" style="background: var(--vacation);"></div> Congés</div>
+                    <div class="legend-item"><div class="dot" style="background: var(--off-day);"></div> Fermé / Férié</div>
+                </div>
+            </div>
+
+            <div class="side-info">
+                <div id="statusIndicator" class="status-badge">Chargement du statut...</div>
+
+                <div class="hour-card">
+                    <h3>Disponibilités</h3>
+                    <div class="hour-row"><span>Lundi - Vendredi</span><span>09:00 — 16:00</span></div>
+                    <div class="hour-row"><span>Samedi - Dimanche</span><span>Fermé</span></div>
+                    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px; line-height: 1.4;">
+                        Interventions dans un rayon de 25km autour de Fismes.
+                    </p>
+                </div>
+
+                <div class="main-card" style="padding: 25px;">
+                    <h4 style="margin-top: 0; font-family: 'Playfair Display', serif;">Fermetures Annuelles</h4>
+                    <ul style="font-size: 0.85rem; padding-left: 20px; color: #555;">
+                        <li>1er Janvier (Jour de l'An)</li>
+                        <li>1er Mai (Fête du Travail)</li>
+                        <li>Dernière semaine de Juillet</li>
+                        <li>Deux premières d'Août</li>
+                        <li>25 Décembre (Noël)</li>
+                    </ul>
+                    <a href="contact.html" style="display: block; background: var(--gold); color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 2px; margin-top: 20px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">Demander un devis</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer><p>LEXI VFR | FISMES | 06 44 24 27 64</p></footer>
+
+    <script>
+        let currentMonth = new Date().getMonth();
+        const currentYear = 2026;
+        const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+        function updateStatus() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const indicator = document.getElementById('statusIndicator');
+
+            // Ouvert Lun-Ven (1-5) de 09:00 à 16:00
+            if(day >= 1 && day <= 5 && hour >= 9 && hour < 16) {
+                indicator.innerHTML = '<i class="fas fa-check-circle"></i> Nous sommes actuellement ouverts';
+                indicator.className = "status-badge status-on";
+            } else {
+                indicator.innerHTML = '<i class="fas fa-clock"></i> Actuellement fermé (Réouverture à 09h)';
+                indicator.className = "status-badge status-off";
+            }
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            const display = document.getElementById('monthDisplay');
+            grid.innerHTML = '';
+            display.innerText = months[currentMonth] + " " + currentYear;
+
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const offset = (firstDay === 0) ? 6 : firstDay - 1;
+
+            for(let i=0; i < offset; i++) grid.innerHTML += '<div></div>';
+
+            for(let d=1; d <= daysInMonth; d++) {
+                let classes = "day";
+                const dateStr = `${d}/${currentMonth + 1}`;
+                
+                // Fermetures Fériées
+                if(dateStr === "1/1" || dateStr === "1/5" || dateStr === "25/12") classes += " closed";
+                
+                // Congés (Dernière Juillet + 2 premières Août)
+                if(currentMonth === 6 && d >= 25) classes += " vacation";
+                if(currentMonth === 7 && d <= 16) classes += " vacation";
+
+                grid.innerHTML += `<div class="${classes}">${d}</div>`;
+            }
+        }
+
+        function changeMonth(dir) {
+            currentMonth += dir;
+            if(currentMonth < 0) currentMonth = 0;
+            if(currentMonth > 11) currentMonth = 11;
+            renderCalendar();
+        }
+
+        renderCalendar();
+        updateStatus();
+    </script>
+</body>
+</html>
