@@ -5,22 +5,74 @@
     <title>Avis Clients - Lexi VFR</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .widget-wrapper {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .cta-google {
+            text-align: center;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px dashed var(--gold);
+        }
+        .btn-google {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .btn-google:hover {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
     <header><img src="Image2.jpg" alt="Lexi VFR" class="banner"></header>
-    <nav><ul><li><a href="index.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="planning.html">Planning</a></li><li><a href="avis.html" class="active">Avis</a></li><li><a href="contact.html">Contact</a></li><li><a href="mentions-legales.html">Mentions</a></li></ul></nav>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="avis.html" class="active">Avis</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="mentions-legales.html">Mentions</a></li>
+        </ul>
+    </nav>
+
     <section>
-        <h2>Ce que disent mes clients</h2>
-        <div class="card" style="margin-bottom: 20px;">
-            <p><i class="fas fa-quote-left" style="color:var(--gold)"></i> "Une rigueur exemplaire. Alexia a transformé notre maison, le résultat est impeccable." — <em>M. Lefèvre, Fismes</em></p>
-            <div style="color:var(--gold)"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <h2>Avis de nos clients</h2>
+        <p style="text-align: center; margin-bottom: 30px;">La transparence et la satisfaction de mes clients à Fismes sont mes priorités.</p>
+
+        <div class="widget-wrapper">
+            <script defer async src='https://cdn.trustindex.io/loader.js?5a7885271842921e45165598846'></script>
         </div>
-        <div class="card">
-            <h3>Laissez votre témoignage</h3>
-            <input type="text" placeholder="Votre Nom" style="width:100%; padding:10px; margin-bottom:10px;">
-            <textarea placeholder="Votre commentaire..." style="width:100%; padding:10px; height:80px;"></textarea>
-            <button class="btn-gold" style="border:none; cursor:pointer;" onclick="alert('Merci pour votre confiance !')">Publier mon avis</button>
+
+        <div class="cta-google">
+            <h3>Votre avis compte énormément</h3>
+            <p>Vous avez fait appel à mes services ? Partagez votre expérience directement sur Google.</p>
+            <a href="https://g.page/r/CbP1SPXPgk7qEAE/review" target="_blank" class="btn-google">
+                <i class="fab fa-google"></i> Déposer un avis sur Google
+            </a>
         </div>
     </section>
+
+    <footer style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+        <div style="text-align: center; font-size: 0.9em; color: #666;">
+            <p><strong>Lexi VFR</strong> — Services de Nettoyage & Repassage</p>
+            <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
+        </div>
+    </footer>
 </body>
 </html>
