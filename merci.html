@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark-blue: #1a252f; --soft-white: #fcfcfc; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--soft-white); color: var(--dark-blue); display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--soft-white); color: var(--dark-blue); display: flex; align-items: center; justify-content: center; min-height: 100vh; flex-direction: column; box-sizing: border-box; padding: 20px 0; }
         
         /* Background subtil */
         .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('bg-planning.png') center/cover; z-index: -1; }
 
-        .thank-you-card { background: white; padding: 60px; text-align: center; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); max-width: 600px; width: 90%; transform: translateY(0); animation: fadeInUp 0.8s ease-out; }
+        .thank-you-card { background: white; padding: 60px; text-align: center; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); max-width: 600px; width: 90%; transform: translateY(0); animation: fadeInUp 0.8s ease-out; box-sizing: border-box; }
         
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -25,10 +25,44 @@
 
         .divider { width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px; }
 
-        .btn-home { display: inline-block; padding: 15px 40px; background: var(--dark-blue); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; border-radius: 2px; transition: 0.3s; }
+        .btn-home { display: inline-block; padding: 15px 40px; background: var(--dark-blue); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; border-radius: 2px; transition: 0.3s; box-sizing: border-box; width: auto; }
         .btn-home:hover { background: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
 
-        footer { position: absolute; bottom: 30px; font-size: 0.75rem; letter-spacing: 1px; color: #aaa; text-transform: uppercase; }
+        footer { font-size: 0.75rem; letter-spacing: 1px; color: #aaa; text-transform: uppercase; margin-top: 30px; text-align: center; padding: 0 20px; }
+
+        /* ==========================================
+           MODIFICATIONS SPECIFIQUES POUR TELEPHONE
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                justify-content: flex-start; /* Permet le défilement si le téléphone est petit */
+            }
+            .thank-you-card {
+                padding: 40px 20px;
+                margin-top: 20px;
+            }
+            .icon-check {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+            .btn-home {
+                display: block; /* Prend toute la largeur sur mobile pour cliquer facilement */
+                padding: 15px 20px;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+            footer {
+                margin-top: 20px;
+                position: static; /* Évite de se superposer sur la carte */
+            }
+        }
     </style>
 </head>
 <body>
