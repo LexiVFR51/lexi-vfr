@@ -17,42 +17,37 @@
         nav ul li a { color: var(--dark-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; display: block; padding: 5px 0; }
         nav ul li a:hover, nav ul li a.active { color: var(--gold); }
 
-        /* Hero Banner */
+        /* Hero Banner Harmonisée */
         .hero-planning { 
             height: 45vh; 
-            background: url('bg-planning.png') center/cover no-repeat fixed; 
+            background: url('bg-services.png') center/cover no-repeat fixed; 
             margin-top: 60px;
         }
         .gold-divider { width: 100%; height: 5px; background: var(--gold); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
 
-        /* Structure Globale PC - Aligné et large */
+        /* Structure Globale PC */
         .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; box-sizing: border-box; }
         .planning-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: start; }
         
-        /* Cartes Blanches */
         .main-card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 4px solid var(--gold); box-sizing: border-box; }
         h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0; margin-bottom: 30px; text-align: center; }
 
-        /* Application Calendrier pour PC */
+        /* Application Calendrier */
         .calendar-app { border: 1px solid #eee; padding: 30px; border-radius: 8px; background: #fff; box-sizing: border-box; width: 100%; }
         .calendar-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-weight: 600; color: var(--gold); font-size: 1.3rem; }
         .calendar-nav button { background: none; border: none; cursor: pointer; color: var(--gold); font-size: 1.5rem; transition: 0.3s; padding: 5px 15px; }
         .calendar-nav button:hover { transform: scale(1.1); color: var(--dark-blue); }
         
-        /* Grille des 7 jours */
         .grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
         .day-name { font-weight: 600; font-size: 0.9rem; color: #aaa; text-align: center; padding-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Style des cases jours */
         .day { padding: 20px 0; font-size: 1rem; border-radius: 4px; text-align: center; border: 1px solid #f7f7f7; background: #fafafa; transition: 0.3s; cursor: default; box-sizing: border-box; }
         .day:not(.empty):not(.closed):not(.vacation):hover { background-color: rgba(212, 175, 55, 0.1); border-color: var(--gold); color: var(--gold); font-weight: 600; }
         .day.empty { border: none; background: none; cursor: default; }
         
-        /* Couleurs des indisponibilités */
         .closed { background-color: var(--off-day); color: #a94442; font-weight: 600; border-color: #ebccd1; }
         .vacation { background-color: var(--vacation); color: #31708f; font-weight: 600; border-color: #bce8f1; }
 
-        /* Barre latérale droite (PC) */
         .side-info { display: flex; flex-direction: column; gap: 30px; }
         .status-badge { padding: 18px; border-radius: 4px; text-align: center; font-weight: 600; font-size: 0.95rem; border: 1px solid; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .status-on { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
@@ -72,15 +67,11 @@
         .btn-side { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--gold); color: white; text-align: center; padding: 16px; text-decoration: none; border-radius: 2px; margin-top: 25px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; box-sizing: border-box; width: 100%; border: none; cursor: pointer; }
         .btn-side:hover { background: var(--dark-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
 
-        /* Footer */
         footer { text-align: center; padding: 50px 20px; background: #fff; border-top: 1px solid #eee; margin-top: 80px; box-sizing: border-box; }
         footer p { font-size: 0.85rem; letter-spacing: 1px; color: #999; margin: 0 0 10px 0; }
         footer .phone { color: var(--dark-blue); font-weight: 600; display: inline-block; text-decoration: none; transition: color 0.3s; }
         footer .phone:hover { color: var(--gold); }
 
-        /* ==========================================
-           COMPATIBILITE SMARTPHONE (SI BESOIN)
-           ========================================== */
         @media (max-width: 900px) {
             nav { position: relative; padding: 0.5rem 0; }
             nav ul { flex-direction: column; align-items: center; }
@@ -111,7 +102,6 @@
 
     <div class="container">
         <div class="planning-grid">
-            
             <div class="main-card">
                 <h2>Agenda Lexi VFR 2026</h2>
                 <div class="calendar-app">
@@ -123,10 +113,8 @@
                     <div class="grid-7">
                         <div class="day-name">Lun</div><div class="day-name">Mar</div><div class="day-name">Mer</div><div class="day-name">Jeu</div><div class="day-name">Ven</div><div class="day-name">Sam</div><div class="day-name">Dim</div>
                     </div>
-                    <div id="calendarGrid" class="grid-7">
-                        </div>
+                    <div id="calendarGrid" class="grid-7"></div>
                 </div>
-                
                 <div class="legend-box">
                     <div class="legend-item"><div class="dot" style="background: var(--vacation); border: 1px solid #bce8f1;"></div> Congés annuels</div>
                     <div class="legend-item"><div class="dot" style="background: var(--off-day); border: 1px solid #ebccd1;"></div> Jour fermé / Férié</div>
@@ -135,7 +123,6 @@
 
             <div class="side-info">
                 <div id="statusIndicator" class="status-badge">Chargement...</div>
-
                 <div class="hour-card">
                     <i class="fas fa-clock bg-icon"></i>
                     <h3>Heures d'intervention</h3>
@@ -145,7 +132,6 @@
                         Interventions professionnelles régulières ou ponctuelles dans la région de Fismes.
                     </p>
                 </div>
-
                 <div class="main-card" style="padding: 30px 25px;">
                     <h4 style="margin-top: 0; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px;">Fermetures Programmées</h4>
                     <ul style="font-size: 0.85rem; padding-left: 20px; color: #555; line-height: 1.7; font-weight: 300; margin-bottom: 0;">
@@ -158,7 +144,6 @@
                     <a href="contact.html" class="btn-side"><i class="fas fa-file-signature"></i> Demander mon devis gratuit</a>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -168,7 +153,6 @@
     </footer>
 
     <script>
-        // CONFIGURATION AUTOMATIQUE
         let currentMonth = new Date().getMonth();
         const currentYear = 2026;
         const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
