@@ -3,69 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Lexi VFR - Nettoyage à Fismes</title>
+    <title>Nos Services | Lexi VFR - Nettoyage de Prestige à Fismes</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --gold: #d4af37; --dark-blue: #1a252f; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff; color: var(--dark-blue); }
+        :root { 
+            --gold: #d4af37; 
+            --dark-blue: #1a252f; 
+            --soft-white: #fcfcfc; 
+            --light-bg: #f8f9fa;
+        }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--soft-white); color: var(--dark-blue); overflow-x: hidden; }
         
-        /* Navigation */
-        nav { background: rgba(255, 255, 255, 0.95); padding: 1rem 0; position: fixed; top: 0; width: 100%; z-index: 2000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        /* Navigation Fixe */
+        nav { background: rgba(255, 255, 255, 0.98); padding: 1.2rem 0; position: fixed; top: 0; width: 100%; z-index: 2000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         nav ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-        nav ul li { margin: 0 20px; }
-        nav ul li a { color: var(--dark-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.8rem; font-weight: 600; display: block; padding: 5px 0; }
-        
-        /* Hero Section avec Image de Fond */
-        .hero-small { 
+        nav ul li { margin: 0 25px; }
+        nav ul li a { color: var(--dark-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; display: block; padding: 5px 0; }
+        nav ul li a:hover, nav ul li a.active { color: var(--gold); }
+
+        /* Hero Services */
+        .hero-services { 
             height: 45vh; 
-            background: url('bg-services.png') center/cover no-repeat; 
+            background: url('bg-services.png') center/cover no-repeat fixed; 
             margin-top: 60px;
         }
-        
-        .gold-line { width: 100%; height: 4px; background: var(--gold); }
-        
-        /* Contenu */
-        .content { max-width: 1100px; margin: 0 auto; padding: 60px 20px; text-align: center; box-sizing: border-box; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle-line { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 40px; }
-        
-        /* Grille des Services */
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card { 
-            padding: 40px 20px; 
-            border: 1px solid #f0f0f0; 
-            transition: all 0.4s ease; 
-            border-radius: 4px;
-            background: #fff;
-            box-sizing: border-box;
-        }
-        .service-card:hover { 
-            border-color: var(--gold); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07); 
-            transform: translateY(-5px);
-        }
-        .service-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
-        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; }
-        .service-card p { font-size: 0.95rem; line-height: 1.6; color: #555; }
-        
-        /* Lien Téléphone */
-        .phone-footer {
-            color: var(--dark-blue);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .phone-footer:hover {
-            color: var(--gold);
-        }
+        .gold-divider { width: 100%; height: 5px; background: var(--gold); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
 
-        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #eee; margin-top: 40px; font-size: 0.9rem; letter-spacing: 1px; box-sizing: border-box; }
+        /* Contenu Principal */
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; text-align: center; box-sizing: border-box; }
+        
+        h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .decorative-gold-bar { width: 60px; height: 2px; background: var(--gold); margin: 15px auto 40px; }
+        .intro-text { color: #555; font-size: 1.1rem; margin-bottom: 50px; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        /* Grille des Prestations */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card { background: white; padding: 40px 30px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #f0f0f0; transition: 0.4s; box-sizing: border-box; }
+        .service-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-color: var(--gold); transform: translateY(-5px); }
+        .service-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .service-card p { color: #666; font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+
+        /* Bloc Infos Avantages CESU */
+        .cesu-info-box { margin-top: 70px; background: white; border-top: 4px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.05); padding: 40px; border-radius: 4px; text-align: left; display: flex; align-items: center; gap: 30px; box-sizing: border-box; }
+        .cesu-icon { font-size: 3rem; color: var(--gold); }
+        .cesu-text h4 { margin: 0 0 10px 0; font-size: 1.3rem; font-family: 'Poppins', sans-serif; font-weight: 600; }
+        .cesu-text p { margin: 0; color: #555; font-weight: 300; line-height: 1.6; }
+
+        /* Bouton */
+        .btn-action { display: inline-block; margin-top: 50px; padding: 18px 45px; background: var(--dark-blue); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; font-weight: 600; transition: 0.4s; box-sizing: border-box; border-radius: 2px; }
+        .btn-action:hover { background: var(--gold); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2); }
+
+        /* Footer */
+        footer { text-align: center; padding: 50px 20px; background: #fff; border-top: 1px solid #eee; margin-top: 80px; box-sizing: border-box; }
+        footer p { font-size: 0.85rem; letter-spacing: 1px; color: #999; margin: 0 0 10px 0; }
+        footer .phone { color: var(--dark-blue); font-weight: 600; display: inline-block; text-decoration: none; transition: color 0.3s; }
+        footer .phone:hover { color: var(--gold); }
 
         /* ==========================================
            MODIFICATIONS SPECIFIQUES POUR TELEPHONE
            ========================================== */
         @media (max-width: 768px) {
-            nav {
-                position: relative; /* Évite de manger de l'espace sur petit écran */
-                padding: 0
+            nav { position: relative; padding: 0.5rem 0; }
+            nav ul { flex-direction: column; align-items: center; }
+            nav ul li { margin: 6px 0; }
+            
+            .hero-services { height: 25vh; margin-top: 0; background-attachment: scroll; }
+            .container { margin: 30px auto; }
+            h2 { font-size: 1.8rem; }
+            .intro-text { font-size: 1rem; margin-bottom: 30px; }
+            
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .service-card { padding: 30px 20px; }
+            
+            .cesu-info-box { flex-direction: column; text-align: center; padding: 30px 20px; gap: 15px; }
+            .cesu-icon { font-size: 2.5rem; }
+            
+            .btn-action { display: block; width: 100%; padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="avis.html">Avis</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-services"></div>
+    <div class="gold-divider"></div>
+
+    <div class="container">
+        <h2>Mes Prestations sur Mesure</h2>
+        <div class="decorative-gold-bar"></div>
+        <p class="intro-text">
+            Parce que votre intérieur mérite une attention exclusive, je mets mon savoir-faire et ma rigueur au service de votre sérénité au quotidien à Fismes et sa région.
+        </p>
+
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <i class="fas fa-sparkles"></i>
+                <h3>Ménage Résidentiel</h3>
+                <p>
+                    Entretien complet de vos pièces de vie, dépoussiérage méticuleux, nettoyage des sols et désinfection des sanitaires et de la cuisine. Une propreté impeccable, sans aucun compromis.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-shirt"></i>
+                <h3>Repassage à Domicile</h3>
+                <p>
+                    Soin particulier apporté à votre garde-robe et à votre linge de maison. Un repassage soigné et un pliage rigoureux pour des vêtements prêts à être rangés.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-window-maximize"></i>
+                <h3>Nettoyage des Vitres</h3>
+                <p>
+                    Élimination des traces et lavage minutieux de vos surfaces vitrées, baies vitrées et encadrements pour laisser entrer pleinement la lumière dans votre demeure.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="cesu-info-box">
+            <div class="cesu-icon"><i class="fas fa-percentage"></i></div>
+            <div class="cesu-text">
+                <h4>Avantage Fiscal & Déductibilité</h4>
+                <p>
+                    En faisant appel à mes services en direct via le système <strong>CESU (Chèque Emploi Service Universel)</strong>, vous bénéficiez immédiatement de <strong>50% de crédit d'impôt</strong> sur l'ensemble des prestations réalisées.
+                </p>
+            </div>
+        </div>
+
+        <a href="contact.html" class="btn-action">Demander une étude personnalisée</a>
+    </div>
+
+    <footer>
+        <p>LEXI VFR — SERVICES DE NETTOYAGE & REPASSAGE À FISMES</p>
+        <a href="tel:0644242764" class="phone"><i class="fas fa-phone"></i> 06 44 24 27 64</a>
+    </footer>
+
+</body>
+</html>
