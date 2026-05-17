@@ -40,6 +40,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: wrap;
         }
 
         nav ul li { margin: 0 20px; }
@@ -51,6 +52,8 @@
             letter-spacing: 1.5px;
             font-size: 0.8rem;
             transition: 0.3s;
+            display: block;
+            padding: 5px 0;
         }
 
         nav ul li a:hover { color: var(--gold); }
@@ -81,6 +84,7 @@
             margin: 0 auto;
             padding: 80px 20px;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -110,6 +114,7 @@
             background: #fff;
             transition: 0.4s;
             border: 1px solid #f0f0f0;
+            box-sizing: border-box;
         }
 
         .card-luxe:hover {
@@ -135,6 +140,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             transition: 0.4s;
+            box-sizing: border-box;
         }
 
         .btn-luxe:hover {
@@ -142,15 +148,62 @@
             color: white;
         }
 
-        footer {
-            background: #fdfdfd;
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid #eee;
+        /* Lien Téléphone */
+        .phone-footer {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .phone-footer:hover {
+            color: var(--gold);
         }
 
+        footer {
+            background: #fdfdfd;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            box-sizing: border-box;
+        }
+
+        /* ==========================================
+           MODIFICATIONS SPECIFIQUES POUR TELEPHONE
+           ========================================== */
         @media (max-width: 768px) {
-            .section-title { font-size: 2rem; }
+            nav {
+                position: relative;
+                padding: 0.5rem 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 6px 0;
+            }
+            .hero-prestige {
+                height: 35vh; /* Plus petite sur mobile pour un meilleur rendu */
+            }
+            .content-section {
+                padding: 40px 15px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .grid-luxe {
+                grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+                gap: 20px;
+            }
+            .card-luxe {
+                padding: 30px 20px;
+            }
+            .btn-luxe {
+                display: block;
+                width: 100%;
+                margin-top: 30px;
+                padding: 15px 20px;
+            }
         }
     </style>
 </head>
@@ -166,10 +219,8 @@
         </ul>
     </nav>
 
-    <!-- Bannière Prestige épurée (Titre retiré) -->
     <div class="hero-prestige"></div>
 
-    <!-- Ligne de séparation dorée inspirée de votre image -->
     <div class="gold-line-separator"></div>
 
     <div class="content-section">
@@ -203,7 +254,7 @@
 
     <footer>
         <p style="letter-spacing: 2px;"><strong>LEXI VFR</strong></p>
-        <p><i class="fas fa-phone"></i> 06 44 24 27 64</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:0644242764" class="phone-footer">06 44 24 27 64</a></p>
     </footer>
 
 </body>
