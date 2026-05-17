@@ -17,16 +17,16 @@
         nav ul li a { color: var(--dark-blue); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; display: block; padding: 5px 0; }
         nav ul li a:hover, nav ul li a.active { color: var(--gold); }
 
-        /* Hero Banner */
+        /* Hero Banner Harmonisée */
         .hero-contact { 
             height: 45vh; 
-            background: url('bg-contact.png') center/cover no-repeat fixed; 
+            background: url('bg-services.png') center/cover no-repeat fixed; 
             margin-top: 60px;
         }
         .gold-divider { width: 100%; height: 5px; background: var(--gold); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
 
-        /* Structure Conteneur Principal (Style Cartes Blanches PC) */
-        .container { max-width: 850px; margin: 60px auto; padding: 0 20px; box-sizing: border-box; }
+        /* Structure Conteneur Principal - Bloc remontant sur la bannière */
+        .container { max-width: 850px; margin: -50px auto 60px; padding: 0 20px; box-sizing: border-box; position: relative; z-index: 10; }
         .main-card { background: white; padding: 50px; border-radius: 4px; box-shadow: 0 15px 45px rgba(0,0,0,0.05); border-top: 4px solid var(--gold); box-sizing: border-box; }
         
         h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0; margin-bottom: 10px; text-align: center; }
@@ -112,7 +112,7 @@
             nav ul li { margin: 6px 0; }
             
             .hero-contact { height: 25vh; margin-top: 0; background-attachment: scroll; } 
-            .container { margin: 30px auto; padding: 0 15px; }
+            .container { margin: 20px auto; padding: 0 15px; }
             .main-card { padding: 30px 20px; }
             
             h2 { font-size: 1.8rem; }
@@ -145,8 +145,7 @@
             <h2>Demander un devis gratuit</h2>
             <p class="intro-text">Votre projet d'entretien sur mesure à Fismes et ses environs. Réponse sous 24h.</p>
 
-            <form action="https://formspree.io/f/xbdwebao" method="POST">
-                <input type="hidden" name="_next" value="https://lexivfr51.github.io/lexi-vfr/merci.html">
+            <form action="LIEN_DE_VOTRE_SCRIPT_GOOGLE_ICI" method="POST">
 
                 <div class="form-row">
                     <div class="form-group">
